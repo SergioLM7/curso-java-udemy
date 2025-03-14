@@ -10,9 +10,9 @@ public class HibernateListar {
     public static void main(String[] args) {
 
         EntityManager em = JpaUtil.getEntityManager();
-        List<Cliente> clientes = em.createQuery("SELECT c FROM Cliente c").getResultList();
+        List<Cliente> clientes = em.createQuery("SELECT c FROM Cliente c", Cliente.class).getResultList();
 
-        clientes.forEach(c -> System.out.println(c));
+        clientes.forEach(System.out::println);
         em.close();
     }
 
